@@ -1,0 +1,71 @@
+
+# Spécifie les dimensions de sortie.
+Dimensions 640 480
+
+# Comme gluPerspective
+Perspective 30.0 1.33 1.0 20
+
+# Comme gluLookAt
+LookAt  1.2434  1.2533  9.8429 # position de l'oeil
+       -0.1243 -0.1253 -0.9843 # position du focus
+       -0.0157  0.9921 -0.1243 # vecteur up
+
+# Matériau bleu
+Material "blue"
+    "ambient"   [0.0 0.0 1.0]
+    "diffuse"   [0.0 0.0 1.0]
+    "specular"  [1.0 1.0 1.0]
+    "emission"  [0.0 0.0 0.0]
+    "shininess" 500.0 # exposant spéculaire
+    "reflect"   0.0   # facteur de reflection [0 = aucune reflection, 1 = reflection totale, 0..1 ajouté à la couleur de la surface]
+
+# Matériau blanc.
+Material "white"
+    "ambient"   [0.1 0.1 0.1]
+    "diffuse"   [2.0 2.0 2.0]
+    "specular"  [0 0 0]
+    "emission"  [0 0 0]
+    "shininess" 0.0
+    "reflect"   0.0
+
+
+###############################################################################
+## objets
+##
+## Maillage de cube
+
+
+PushMatrix
+    Scale 2 2 2
+    Translate -0.5 -0.5 0.0
+    Mesh "blue" "meshes/cube.obj"
+PopMatrix
+
+# Sol
+PushMatrix
+    Translate 0 -1.25 0
+    Rotate -90 1 0 0
+    Plane "white"
+PopMatrix
+
+
+############################################################################### 
+## defini les lumières
+##
+## defini une source ponctuelle
+
+#PointLight      2.0 10.0 3.0     # position [x y z]
+PointLight      0.0 0.0 10.0
+    "ambient"  [0.1 0.1 0.1]      # couleur ambiante [r g b]
+    "diffuse"  [10.0 10.0 10.0]   # couleur diffuse
+    "specular" [20.0 20.0 20.0]   # couleur speculaire
+    "attenuation"  [1.8 3.0 0.0]  # attenuation [constant linear square]
+
+# défini une autre source de lumiere
+PointLight 2.0 5.0 -2.0           # position [x y z]
+    "ambient"  [0.1 0.1 0.1]      # couleur ambiante [r g b]
+    "diffuse"  [5.0 5.0 5.0]      # couleur diffuse
+    "specular" [20.0 20.0 20.0]   # couleur speculaire
+    "attenuation"  [1.8 3.0 0.0]  # attenuation [constant linear square]
+
+

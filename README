@@ -1,0 +1,25 @@
+Compiling and Running on *nix
+=============================
+
+The provided Makefile will compile on a number of Linux/Unix
+base systems. 
+
+    make
+
+To run the executable:
+
+    ./raytracer
+
+By default, this will render a scene with only a red cube and save the 
+resulting image as output.bmp.
+
+To run the executable and render a different scene, pass it as the first
+argument:
+
+    ./raytracer your_scene_file_path
+
+
+Scene Format
+============
+
+See scenes/basic.ray for a self-describing scene file.
